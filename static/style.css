@@ -95,3 +95,78 @@ th {
     text-align: center;
     color: #627d98;
 }
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.section-heading h2 {
+    margin: 0;
+}
+
+.primary-button,
+.secondary-button {
+    display: inline-block;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.primary-button {
+    background-color: #172b4d;
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: #244575;
+}
+
+.secondary-button {
+    background-color: #e4e7eb;
+    color: #1f2933;
+}
+
+.secondary-button:hover {
+    background-color: #cbd2d9;
+}
+
+.form-card {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.task-form {
+    display: grid;
+    gap: 18px;
+}
+
+.form-group {
+    display: grid;
+    gap: 7px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #bcccdc;
+    border-radius: 6px;
+    font: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: 2px solid #9fb3c8;
+    border-color: #486581;
+}

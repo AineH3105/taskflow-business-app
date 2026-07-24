@@ -15,7 +15,12 @@
 
 <main class="container">
     <section class="dashboard-card">
-        <h2>Team Tasks</h2>
+      <div class="section-heading">
+    <h2>Team Tasks</h2>
+    <a class="primary-button" href="{{ url_for('add_task') }}">
+        Add Task
+    </a>
+</div>
 
         {% if tasks %}
         <table>
