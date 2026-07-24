@@ -1,22 +1,91 @@
 # TaskFlow
 
-TaskFlow is a lightweight internal task management application for small business teams.
+TaskFlow is a lightweight web-based task management application developed using Python and Flask. It allows users to manage tasks through a simple and responsive dashboard.
 
-The application is being developed as a small technical prototype for Option D: Project Management and Version Control.
+## Features
 
-## Planned features
-
-- View tasks from a central dashboard
-- Create new tasks
-- Assign tasks to team members
-- Set priorities and due dates
-- Update task status
+- View all tasks in a dashboard
+- Add new tasks
+- Edit existing tasks
 - Delete tasks
+- Mark tasks as completed
+- Search tasks by title or assigned user
+- Filter tasks by status
+- View dashboard statistics
+- Store task data using a JSON file
 
-## Technologies
+## Technologies Used
 
-- Python
+- Python 3
 - Flask
-- HTML
+- HTML5
+- CSS3
+- Jinja2
 - JSON
-- Git and GitHub
+- Git & GitHub
+
+## Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/AineH3105/taskflow-business-app.git
+```
+
+Navigate to the project folder
+
+```bash
+cd taskflow-business-app
+```
+
+Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the application
+
+```bash
+python app.py
+```
+
+Open your browser and visit
+
+```
+http://127.0.0.1:5000
+```
+
+## Project Structure
+
+```
+TaskFlow
+│
+├── app.py
+├── tasks.json
+├── requirements.txt
+├── README.md
+│
+├── static
+│   └── style.css
+│
+└── templates
+    ├── index.html
+    ├── add_task.html
+    └── edit_task.html
+```
+
+## Future Improvements
+
+- User authentication
+- Database integration (SQLite)
+- Task deadlines
+- Due date reminders
+- File attachments
+- Task categories
+
+## Author
+
+Áine Hosford
+
+Business Programming Project
