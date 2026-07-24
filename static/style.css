@@ -1,172 +1,328 @@
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
-    color: #1f2933;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3f5f9;
+    color: #1e293b;
 }
 
+/* ---------- Header ---------- */
+
 .page-header {
-    background-color: #172b4d;
+    background: #1f355e;
     color: white;
-    padding: 24px 40px;
+    padding: 40px 70px;
 }
 
 .page-header h1 {
-    margin: 0 0 6px;
+    font-size: 54px;
+    margin-bottom: 10px;
 }
 
 .page-header p {
-    margin: 0;
-    color: #d9e2ec;
+    font-size: 18px;
+    opacity: 0.9;
 }
 
+/* ---------- Main Container ---------- */
+
 .container {
-    max-width: 1100px;
-    margin: 32px auto;
+    max-width: 1200px;
+    margin: 40px auto;
     padding: 0 20px;
 }
 
-.dashboard-card {
-    background-color: white;
-    border-radius: 10px;
-    padding: 24px;
-    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+.dashboard-card,
+.form-card {
+    background: white;
+    border-radius: 18px;
+    padding: 30px;
+    box-shadow: 0 6px 18px rgba(0,0,0,.08);
 }
 
-.dashboard-card h2 {
-    margin-top: 0;
+/* ---------- Section Heading ---------- */
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
 }
+
+.section-heading h2 {
+    font-size: 28px;
+    color: #1f2937;
+}
+
+/* ---------- Buttons ---------- */
+
+.primary-button,
+.complete-button {
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: .2s;
+    font-weight: 600;
+}
+
+.primary-button {
+    background: #1f355e;
+    color: white;
+    padding: 12px 22px;
+    font-size: 16px;
+}
+
+.primary-button:hover {
+    background: #17294a;
+}
+
+.complete-button {
+    background: #2f855a;
+    color: white;
+    padding: 10px 18px;
+    font-size: 15px;
+    white-space: nowrap;
+}
+
+.complete-button:hover {
+    background: #276749;
+}
+
+/* ---------- Table ---------- */
 
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
-th,
-td {
-    padding: 14px;
-    text-align: left;
-    border-bottom: 1px solid #d9e2ec;
-}
-
 th {
-    background-color: #f0f4f8;
+    background: #eef2f7;
+    text-align: left;
+    padding: 18px;
+    font-size: 17px;
 }
 
-.status,
+td {
+    padding: 18px;
+    border-top: 1px solid #dbe4ee;
+    vertical-align: middle;
+}
+
+/* Give Actions column a little more room */
+
+th:last-child,
+td:last-child {
+    width: 240px;
+}
+
+/* ---------- Priority Badges ---------- */
+
 .priority {
     display: inline-block;
-    padding: 6px 10px;
-    border-radius: 14px;
-    font-size: 13px;
-    font-weight: bold;
-}
-
-.status-to-do {
-    background-color: #e4e7eb;
-}
-
-.status-in-progress {
-    background-color: #fff3c4;
-}
-
-.status-completed {
-    background-color: #d3f9d8;
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 700;
 }
 
 .priority-high {
-    background-color: #ffe3e3;
+    background: #fde2e2;
 }
 
 .priority-medium {
-    background-color: #fff3bf;
+    background: #ffefb3;
 }
 
 .priority-low {
-    background-color: #dbe4ff;
+    background: #dbe4ff;
 }
 
-.empty-message {
-    padding: 20px;
-    text-align: center;
-    color: #627d98;
+/* ---------- Status Badges ---------- */
+
+.status {
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 700;
 }
-.section-heading {
+
+.status-to-do {
+    background: #e5e7eb;
+}
+
+.status-in-progress {
+    background: #fff0be;
+}
+
+.status-completed {
+    background: #c8f5d0;
+}
+
+/* ---------- Action Buttons ---------- */
+
+.action-buttons {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 16px;
-    margin-bottom: 20px;
+    gap: 18px;
+    white-space: nowrap;
 }
 
-.section-heading h2 {
+.action-buttons form {
     margin: 0;
 }
 
-.primary-button,
-.secondary-button {
-    display: inline-block;
-    padding: 10px 16px;
+.completed-text {
+    color: #2f855a;
+    font-weight: 700;
+}
+
+.delete-button {
+    background: none;
     border: none;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: bold;
+    color: #64748b;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
+    padding: 0;
 }
 
-.primary-button {
-    background-color: #172b4d;
-    color: white;
+.delete-button:hover {
+    color: #dc2626;
+    text-decoration: underline;
 }
 
-.primary-button:hover {
-    background-color: #244575;
+/* ---------- Empty State ---------- */
+
+.empty-message {
+    text-align: center;
+    padding: 40px;
+    color: #64748b;
 }
 
-.secondary-button {
-    background-color: #e4e7eb;
-    color: #1f2933;
-}
-
-.secondary-button:hover {
-    background-color: #cbd2d9;
-}
-
-.form-card {
-    max-width: 700px;
-    margin: 0 auto;
-}
+/* ---------- Forms ---------- */
 
 .task-form {
-    display: grid;
-    gap: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
 }
 
 .form-group {
-    display: grid;
-    gap: 7px;
+    display: flex;
+    flex-direction: column;
 }
 
 .form-group label {
+    margin-bottom: 8px;
+    font-size: 18px;
     font-weight: bold;
 }
 
 .form-group input,
 .form-group select {
-    width: 100%;
-    padding: 11px 12px;
-    border: 1px solid #bcccdc;
-    border-radius: 6px;
-    font: inherit;
+    padding: 14px;
+    font-size: 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
 }
 
 .form-group input:focus,
 .form-group select:focus {
-    outline: 2px solid #9fb3c8;
-    border-color: #486581;
+    outline: none;
+    border-color: #1f355e;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.back-button {
+    background: #e5e7eb;
+    color: #1f2937;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.back-button:hover {
+    background: #d1d5db;
+}/* ===========================
+   TABLE COLUMN WIDTHS
+=========================== */
+
+th:first-child,
+td:first-child {
+    width: 320px;
+}
+
+th:nth-child(4),
+td:nth-child(4) {
+    width: 180px;
+}
+
+/* ===========================
+   STATUS & PRIORITY BADGES
+=========================== */
+
+.priority,
+.status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    border-radius: 999px;
+    font-weight: 700;
+    white-space: nowrap;
+    min-width: 90px;
+}
+
+/* ===========================
+   ACTION BUTTONS
+=========================== */
+
+.actions-cell {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    white-space: nowrap;
+}
+
+.complete-button {
+    background: #2f8f5b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.complete-button:hover {
+    background: #27784c;
+}
+
+.delete-link {
+    color: #5b6f8f;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.delete-link:hover {
+    color: #c0392b;
+    text-decoration: underline;
+}
+
+.completed-text {
+    color: #2f8f5b;
+    font-weight: 700;
 }

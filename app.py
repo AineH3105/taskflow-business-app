@@ -49,5 +49,33 @@ def add_task():
     return render_template("add_task.html")
 
 
+@app.route("/complete/<int:task_id>", methods=["POST"])
+def complete_task(task_id):
+    """Mark a task as completed."""
+    tasks = load_tasks()
+
+    for task in tasks:
+        if task["id"] == task_id:
+            task["status"] = "Completed"
+            break
+
+    save_tasks(tasks)
+    return redirect(url_for("home"))
+
+
+@app.route("/delete/<int:task_id>", methods=["POST"])
+def delete_task(task_id):
+    """Delete a task from the task list."""
+    tasks = load_tasks()
+
+    updated_tasks = [
+        task for task in tasks
+        if task["id"] != task_id
+    ]
+
+    save_tasks(updated_tasks)
+    return redirect(url_for("home"))
+
+
 if __name__ == "__main__":
     app.run(debug=True)

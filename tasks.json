@@ -1,30 +1,23 @@
 [
     {
-        "id": 1,
-        "title": "Create project proposal",
-        "assigned_to": "Aine",
-        "priority": "High",
-        "status": "In Progress"
-    },
-    {
-        "id": 2,
-        "title": "Design homepage",
-        "assigned_to": "John",
-        "priority": "Medium",
-        "status": "To Do"
-    },
-    {
-        "id": 3,
-        "title": "Write documentation",
-        "assigned_to": "Sarah",
-        "priority": "Low",
-        "status": "Completed"
-    },
-    {
         "id": 4,
         "title": "Prepare Final Report",
         "assigned_to": "Aine",
         "priority": "High",
         "status": "To Do"
+    },
+    {
+        "id": 5,
+        "title": "Develop TaskFlow Prototype",
+        "assigned_to": "Aine",
+        "priority": "High",
+        "status": "In Progress"
+    },
+    {
+        "id": 6,
+        "title": "Create Project Proposal",
+        "assigned_to": "Aine",
+        "priority": "High",
+        "status": "Completed"
     }
 ]
