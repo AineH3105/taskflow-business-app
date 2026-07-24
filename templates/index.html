@@ -2,13 +2,56 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>TaskFlow</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskFlow Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
-<h1>TaskFlow</h1>
+<header class="page-header">
+    <h1>TaskFlow</h1>
+    <p>Internal task management dashboard</p>
+</header>
 
-<p>Welcome to TaskFlow Business App.</p>
+<main class="container">
+    <section class="dashboard-card">
+        <h2>Team Tasks</h2>
+
+        {% if tasks %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Assigned To</th>
+                    <th>Priority</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                {% for task in tasks %}
+                <tr>
+                    <td>{{ task.title }}</td>
+                    <td>{{ task.assigned_to }}</td>
+                    <td>
+                        <span class="priority priority-{{ task.priority|lower }}">
+                            {{ task.priority }}
+                        </span>
+                    </td>
+                    <td>
+                        <span class="status status-{{ task.status|lower|replace(' ', '-') }}">
+                            {{ task.status }}
+                        </span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p class="empty-message">No tasks are currently available.</p>
+        {% endif %}
+    </section>
+</main>
 
 </body>
 </html>

@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f6f8;
+    color: #1f2933;
+}
+
+.page-header {
+    background-color: #172b4d;
+    color: white;
+    padding: 24px 40px;
+}
+
+.page-header h1 {
+    margin: 0 0 6px;
+}
+
+.page-header p {
+    margin: 0;
+    color: #d9e2ec;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 32px auto;
+    padding: 0 20px;
+}
+
+.dashboard-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 24px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.dashboard-card h2 {
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #d9e2ec;
+}
+
+th {
+    background-color: #f0f4f8;
+}
+
+.status,
+.priority {
+    display: inline-block;
+    padding: 6px 10px;
+    border-radius: 14px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.status-to-do {
+    background-color: #e4e7eb;
+}
+
+.status-in-progress {
+    background-color: #fff3c4;
+}
+
+.status-completed {
+    background-color: #d3f9d8;
+}
+
+.priority-high {
+    background-color: #ffe3e3;
+}
+
+.priority-medium {
+    background-color: #fff3bf;
+}
+
+.priority-low {
+    background-color: #dbe4ff;
+}
+
+.empty-message {
+    padding: 20px;
+    text-align: center;
+    color: #627d98;
+}
