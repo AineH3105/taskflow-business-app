@@ -326,3 +326,107 @@ td:nth-child(4) {
     color: #2f8f5b;
     font-weight: 700;
 }
+/* ---------- Dashboard Summary ---------- */
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.summary-card {
+    background: white;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
+}
+
+.summary-label {
+    display: block;
+    color: #64748b;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.summary-card strong {
+    font-size: 30px;
+    color: #1f355e;
+}
+
+@media (max-width: 800px) {
+    .summary-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 500px) {
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+}/* ---------- Task Filter ---------- */
+
+.filter-form {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.filter-form label {
+    font-weight: 700;
+}
+
+.filter-form select {
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font: inherit;
+    background: white;
+}
+
+.filter-button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    background: #1f355e;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    background: #17294a;
+}
+
+.clear-filter {
+    color: #64748b;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.clear-filter:hover {
+    color: #1f355e;
+    text-decoration: underline;
+}.edit-link {
+    color: #1f355e;
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.edit-link:hover {
+    text-decoration: underline;
+}.filter-form input {
+    min-width: 230px;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font: inherit;
+}
+
+.filter-form input:focus {
+    outline: none;
+    border-color: #1f355e;
+}

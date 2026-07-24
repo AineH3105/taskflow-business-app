@@ -24,8 +24,51 @@ def save_tasks(tasks):
 
 @app.route("/")
 def home():
-    tasks = load_tasks()
-    return render_template("index.html", tasks=tasks)
+    all_tasks = load_tasks()
+
+    total_tasks = len(all_tasks)
+    completed_tasks = sum(
+        1 for task in all_tasks if task["status"] == "Completed"
+    )
+    in_progress_tasks = sum(
+        1 for task in all_tasks if task["status"] == "In Progress"
+    )
+    todo_tasks = sum(
+        1 for task in all_tasks if task["status"] == "To Do"
+    )
+
+    selected_status = request.args.get("status", "All")
+    search_query = request.args.get("search", "").strip()
+
+    displayed_tasks = all_tasks
+
+    if selected_status != "All":
+        displayed_tasks = [
+            task
+            for task in displayed_tasks
+            if task["status"] == selected_status
+        ]
+
+    if search_query:
+        query = search_query.lower()
+
+        displayed_tasks = [
+            task
+            for task in displayed_tasks
+            if query in task["title"].lower()
+            or query in task["assigned_to"].lower()
+        ]
+
+    return render_template(
+        "index.html",
+        tasks=displayed_tasks,
+        total_tasks=total_tasks,
+        completed_tasks=completed_tasks,
+        in_progress_tasks=in_progress_tasks,
+        todo_tasks=todo_tasks,
+        selected_status=selected_status,
+        search_query=search_query,
+    )
 
 
 @app.route("/add", methods=["GET", "POST"])
@@ -49,9 +92,32 @@ def add_task():
     return render_template("add_task.html")
 
 
+@app.route("/edit/<int:task_id>", methods=["GET", "POST"])
+def edit_task(task_id):
+    tasks = load_tasks()
+
+    task = next(
+        (task for task in tasks if task["id"] == task_id),
+        None,
+    )
+
+    if task is None:
+        return redirect(url_for("home"))
+
+    if request.method == "POST":
+        task["title"] = request.form["title"].strip()
+        task["assigned_to"] = request.form["assigned_to"].strip()
+        task["priority"] = request.form["priority"]
+        task["status"] = request.form["status"]
+
+        save_tasks(tasks)
+        return redirect(url_for("home"))
+
+    return render_template("edit_task.html", task=task)
+
+
 @app.route("/complete/<int:task_id>", methods=["POST"])
 def complete_task(task_id):
-    """Mark a task as completed."""
     tasks = load_tasks()
 
     for task in tasks:
@@ -65,15 +131,15 @@ def complete_task(task_id):
 
 @app.route("/delete/<int:task_id>", methods=["POST"])
 def delete_task(task_id):
-    """Delete a task from the task list."""
     tasks = load_tasks()
 
-    updated_tasks = [
-        task for task in tasks
+    tasks = [
+        task
+        for task in tasks
         if task["id"] != task_id
     ]
 
-    save_tasks(updated_tasks)
+    save_tasks(tasks)
     return redirect(url_for("home"))
 
 
